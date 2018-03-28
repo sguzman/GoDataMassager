@@ -22,7 +22,7 @@ object Main {
     val file = Files.readAllBytes(Paths.get(fileName))
     val encoded = Base64.getEncoder.encode(file)
 
-    val string = "const shows = [" ++ encoded.grouped(lineLength).map(a => "\"" ++ a.map(_.toChar).mkString ++  "\"").mkString(" + ") ++ "];"
+    val string = "const shows = " ++ encoded.grouped(lineLength).map(a => "\"" ++ a.map(_.toChar).mkString ++  "\"").mkString(" + ") ++ ";"
     println(string)
   }
 }
